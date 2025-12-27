@@ -17,8 +17,9 @@ const Navbar = () => {
       opacity: 0, 
       height: 0,
       transition: {
-        duration: 0.3,
-        ease: "easeInOut",
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
         when: "afterChildren"
       }
     },
@@ -26,8 +27,9 @@ const Navbar = () => {
       opacity: 1, 
       height: "auto",
       transition: {
-        duration: 0.3,
-        ease: "easeInOut",
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
         when: "beforeChildren",
         staggerChildren: 0.1
       }
@@ -41,9 +43,9 @@ const Navbar = () => {
 
   return (
     <>
-    {/* Scroll Progress Bar */}
+    {/* Scroll Progress Bar (Desktop Only for Performance) */}
     <Motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 origin-left z-[60]"
+      className="hidden md:block fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 origin-left z-[60]"
       style={{ scaleX }}
     />
     
@@ -51,7 +53,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-      className="bg-white/90 backdrop-blur-xl border-b border-stone-100 sticky top-0 z-50 shadow-sm"
+      className="bg-white md:bg-white/90 md:backdrop-blur-xl border-b border-stone-100 sticky top-0 z-50 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">

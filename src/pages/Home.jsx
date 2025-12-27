@@ -90,14 +90,9 @@ const Home = () => {
             transition={{ delay: 1, type: "spring" }}
             className="px-4"
           >
-            <Motion.a 
-              href="https://wa.me/c/919716275329"
-              target="_blank"
-              rel="noopener noreferrer"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.08, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full md:w-auto inline-flex justify-center items-center gap-3 bg-stone-900 text-white px-8 py-4 rounded-2xl font-black shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_-12px_rgba(220,38,38,0.3)] transition-all"
+              className="w-full md:w-auto inline-flex justify-center items-center gap-3 bg-stone-900 text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black shadow-lg md:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-xl md:hover:shadow-[0_25px_50px_-12px_rgba(220,38,38,0.3)] transition-all"
             >
               <ArrowRight className="w-5 h-5" />
               View Full Catalog

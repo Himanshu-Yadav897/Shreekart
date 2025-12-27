@@ -4,21 +4,24 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Background from "./components/Background";
+import SmoothScroll from "./components/SmoothScroll";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col relative">
-      <Background />
-      
-      <Navbar />
+    <SmoothScroll>
+      <div className="min-h-screen flex flex-col relative">
+        <Background />
+        
+        <Navbar />
 
-      <Home />
+        <Home />
 
-      <Footer />
+        <Footer />
 
-      {/* Global Floating Action Button */}
-      <FloatingWhatsApp />
-    </div>
+        {/* Global Floating Action Button */}
+        <FloatingWhatsApp />
+      </div>
+    </SmoothScroll>
   );
 }
 
