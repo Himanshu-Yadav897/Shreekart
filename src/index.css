@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luxury-black: #2A0A10;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-cream: #F9F5F0;
+  
+  /* Paper & Pastels */
+  --color-paper: #FDFBF7;
+  --color-paper-dark: #F2EBE5;
+  --color-pastel-pink: #F7C5CC;
+  --color-pastel-blue: #B4D4E6;
+  --color-pastel-green: #C1E1C1;
+  --color-pastel-yellow: #FDFD96;
+
+  --shadow-3xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
