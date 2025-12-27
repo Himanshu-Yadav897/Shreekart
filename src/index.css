@@ -22,10 +22,8 @@ html {
 }
 
 body {
-  /* Force GPU Rasterization */
-  transform: translateZ(0);
+  /* Force GPU Rasterization - Removed transform to fix fixed positioning context */
   backface-visibility: hidden;
-  perspective: 1000px;
   overflow-x: hidden; /* Prevents horizontal scroll glitches */
 }
 
