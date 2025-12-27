@@ -29,7 +29,7 @@ const FloatingWhatsApp = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-3">
+    <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
       <AnimatePresence mode="wait">
         {showTooltip && (
           <Motion.div
@@ -38,7 +38,7 @@ const FloatingWhatsApp = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="bg-white text-stone-800 text-xs font-bold px-4 py-2 rounded-xl shadow-2xl border border-stone-100 relative mb-2 mr-2 whitespace-nowrap"
+            className="bg-white text-stone-800 text-xs font-bold px-4 py-2 rounded-xl shadow-2xl border border-stone-100 relative mr-2 whitespace-nowrap origin-bottom-right"
           >
             {MESSAGES[messageIndex]}
             {/* Tooltip Arrow */}
@@ -56,8 +56,9 @@ const FloatingWhatsApp = () => {
         )}
       </AnimatePresence>
 
+      {/* Primary: Main Chat Button */}
       <Motion.a
-        href="https://wa.me/919716275329?text=Hi%20ShreeKart%2C%20I%20have%20a%20question%20about%20your%20services..."
+        href="https://wa.me/c/919716275329"
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1, rotate: 5 }}

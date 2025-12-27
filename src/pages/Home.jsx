@@ -4,17 +4,17 @@ import { motion as Motion } from "framer-motion";
 
 // --- DATA CONFIGURATION ---
 const QUICK_SERVICES = [
-  { id: "print", icon: <Printer className="w-6 h-6"/>, title: "Color Printout", color: "text-blue-600", bg: "bg-blue-50", border: "hover:border-blue-200" },
-  { id: "xerox", icon: <Copy className="w-6 h-6"/>, title: "Xerox / Photocopy", color: "text-indigo-600", bg: "bg-indigo-50", border: "hover:border-indigo-200" },
-  { id: "lam", icon: <Layers className="w-6 h-6"/>, title: "Lamination", color: "text-orange-600", bg: "bg-orange-50", border: "hover:border-orange-200" },
-  { id: "spiral", icon: <Scissors className="w-6 h-6"/>, title: "Spiral Binding", color: "text-green-600", bg: "bg-green-50", border: "hover:border-green-200" },
+  { id: "print", icon: <Printer className="w-6 h-6"/>, title: "Color Printout", color: "text-blue-600", bg: "bg-blue-50/50", border: "border-blue-100" },
+  { id: "xerox", icon: <Copy className="w-6 h-6"/>, title: "Xerox / Copy", color: "text-indigo-600", bg: "bg-indigo-50/50", border: "border-indigo-100" },
+  { id: "lam", icon: <Layers className="w-6 h-6"/>, title: "Lamination", color: "text-orange-600", bg: "bg-orange-50/50", border: "border-orange-100" },
+  { id: "spiral", icon: <Scissors className="w-6 h-6"/>, title: "Spiral Binding", color: "text-green-600", bg: "bg-green-50/50", border: "border-green-100" },
 ];
 
 const CATEGORIES = [
-  { id: "school", title: "School Supplies", desc: "Notebooks, geometry, maps & more.", icon: <PenTool className="w-6 h-6"/>, theme: "blue", featured: "Bestseller" },
-  { id: "office", title: "Office Essentials", desc: "Files, folders, organizers & paper.", icon: <FileText className="w-6 h-6"/>, theme: "orange" },
-  { id: "art", title: "Art & Craft", desc: "Canvases, paints, brushes & DIY.", icon: <Scissors className="w-6 h-6"/>, theme: "pink" },
-  { id: "gifts", title: "Gifts & Toys", desc: "Educational toys, mugs & decor.", icon: <Gift className="w-6 h-6"/>, theme: "purple", featured: "Trending" },
+  { id: "school", title: "School Supplies", desc: "Notebooks, geometry & maps.", icon: <PenTool className="w-5 h-5"/>, theme: "blue", featured: "Bestseller" },
+  { id: "office", title: "Office Essentials", desc: "Files, folders & paper.", icon: <FileText className="w-5 h-5"/>, theme: "orange" },
+  { id: "art", title: "Art & Craft", desc: "Canvases, paints & DIY.", icon: <Scissors className="w-5 h-5"/>, theme: "pink" },
+  { id: "gifts", title: "Gifts & Toys", desc: "Toys, mugs & decor.", icon: <Gift className="w-5 h-5"/>, theme: "purple", featured: "New" },
 ];
 
 const Home = () => {
@@ -26,7 +26,6 @@ const Home = () => {
     }
   };
 
-  // Smooth Reveal Animation for Text
   const revealVariants = {
     hidden: { y: "100%" },
     visible: { 
@@ -36,45 +35,42 @@ const Home = () => {
   };
 
   return (
-    <main className="min-h-screen font-sans bg-paper pb-20 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden -z-10 opacity-40 pointer-events-none">
-        <Motion.div 
-          animate={{ x: [0, 50, 0], y: [0, -50, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-20 -left-20 w-96 h-96 bg-pastel-pink rounded-full filter blur-3xl"
-        />
-        <Motion.div 
-          animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 -right-20 w-96 h-96 bg-pastel-blue rounded-full filter blur-3xl"
-        />
-      </div>
-
+    <main className="flex-grow pb-20 relative overflow-hidden">
+      
       {/* --- HERO SECTION --- */}
-      <section className="px-4 pt-20 pb-20 md:py-32 text-center relative">
+      <section className="px-6 pt-24 pb-12 md:py-32 text-center relative">
         <div className="max-w-4xl mx-auto">
+          {/* Location Badge */}
           <Motion.a 
             href="https://www.google.com/maps/search/?api=1&query=Shreeji+stationery+and+gift+shop+B+915+near+mohalla+clinic+GD+Colony+Delhi"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-stone-200 text-stone-600 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-sm mb-12 hover:border-red-200 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/50 backdrop-blur-md border border-stone-200/60 text-stone-600 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] shadow-sm mb-10"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-            B-915 • Near Mohalla Clinic • MV Phase-3
+            GD Colony • MV Phase-3
           </Motion.a>
           
-          <h1 className="text-5xl md:text-8xl font-black text-stone-900 mb-8 leading-[0.95] tracking-tighter">
-            <div className="overflow-hidden">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-stone-900 mb-6 leading-[1.1] md:leading-[1] tracking-tighter">
+            <div className="overflow-hidden pb-4 -mb-4">
               <Motion.div variants={revealVariants} initial="hidden" animate="visible">
                 Stationery that
               </Motion.div>
             </div>
-            <div className="overflow-hidden">
-              <Motion.div variants={revealVariants} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
-                sparks <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Joy.</span>
+            <div className="overflow-hidden pb-4 -mb-4">
+              <Motion.div variants={revealVariants} initial="hidden" animate="visible" transition={{ delay: 0.1 }}>
+                sparks{" "}
+                <span className="relative inline-block">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Joy.</span>
+                  <Motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 1, duration: 0.8, ease: "circOut" }}
+                    className="absolute bottom-0 left-0 h-[3px] md:h-[5px] bg-gradient-to-r from-red-500 to-orange-500 rounded-full opacity-80"
+                  />
+                </span>
               </Motion.div>
             </div>
           </h1>
@@ -82,25 +78,26 @@ const Home = () => {
           <Motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="text-stone-500 text-lg md:text-xl mb-12 max-w-xl mx-auto font-medium leading-relaxed"
+            transition={{ delay: 0.8 }}
+            className="text-stone-500 text-lg mb-10 max-w-lg mx-auto font-medium leading-relaxed"
           >
-            Premium school essentials and custom printing services, curated for the modern creator.
+            Your premium neighborhood destination for creative supplies and professional printing.
           </Motion.p>
 
-          {/* WhatsApp Catalog CTA */}
           <Motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1, type: "spring" }}
+            className="px-4"
           >
             <Motion.a 
               href="https://wa.me/c/919716275329"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -5 }}
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-stone-900 text-white px-10 py-5 rounded-2xl font-black shadow-2xl hover:bg-red-600 transition-colors"
+              className="w-full md:w-auto inline-flex justify-center items-center gap-3 bg-stone-900 text-white px-8 py-4 rounded-2xl font-black shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_-12px_rgba(220,38,38,0.3)] transition-all"
             >
               <ArrowRight className="w-5 h-5" />
               View Full Catalog
@@ -109,29 +106,27 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- QUICK SERVICES --- */}
+      {/* --- HORIZONTAL SCROLL SERVICES (Mobile Premium) --- */}
       <Motion.div 
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl mx-auto px-4 -mt-12 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4"
+        viewport={{ once: true, margin: "-50px" }}
+        className="max-w-7xl mx-auto -mt-6 relative z-10"
       >
-        {QUICK_SERVICES.map(service => (
-          <ServiceCard key={service.id} {...service} />
-        ))}
+        {/* Horizontal Scroll Container */}
+        <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-4 pb-8 px-6 -mx-0 md:px-4 no-scrollbar">
+          {QUICK_SERVICES.map(service => (
+            <ServiceCard key={service.id} {...service} />
+          ))}
+        </div>
       </Motion.div>
 
-      {/* --- CATEGORIES --- */}
-      <section className="py-32 px-4 max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-16">
-           <div>
-             <h2 className="text-4xl font-black text-stone-900 tracking-tighter">Collections</h2>
-             <p className="text-stone-500 mt-2 font-medium">Beautifully organized essentials.</p>
-           </div>
-           <Motion.a href="#" whileHover={{ x: 5 }} className="hidden md:flex items-center gap-2 text-stone-900 font-bold hover:text-red-600 transition-colors">
-             Full Catalog <ArrowRight className="w-4 h-4" />
-           </Motion.a>
+      {/* --- CATEGORIES (Glass Cards) --- */}
+      <section className="py-12 px-6 max-w-7xl mx-auto">
+        <div className="mb-10">
+           <h2 className="text-3xl font-black text-stone-900 tracking-tighter">Collections</h2>
+           <p className="text-stone-500 mt-1 font-medium text-sm">Curated essentials for you.</p>
         </div>
 
         <Motion.div 
@@ -139,7 +134,7 @@ const Home = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
         >
           {CATEGORIES.map(cat => (
             <CategoryCard key={cat.id} {...cat} />
@@ -147,31 +142,33 @@ const Home = () => {
         </Motion.div>
       </section>
 
-      {/* --- WHATSAPP CTA --- */}
-      <section className="px-4 pb-32">
+      {/* --- WHATSAPP CTA (Glassmorphism) --- */}
+      <section className="px-4 pb-24 md:pb-32">
         <Motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto bg-stone-900 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-3xl"
+          className="max-w-6xl mx-auto bg-stone-900 rounded-[2.5rem] p-8 md:p-24 text-center relative overflow-hidden shadow-2xl"
         >
+           {/* Abstract Glow */}
+           <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/20 rounded-full blur-[80px]"></div>
+           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"></div>
+
            <div className="relative z-10">
-             <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-xl text-green-400 rounded-3xl mb-10">
-               <MessageSquare className="w-10 h-10" />
+             <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-md text-green-400 rounded-2xl mb-6 ring-1 ring-white/20">
+               <MessageSquare className="w-8 h-8" />
              </div>
-             <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">
-               Ready in <span className="text-green-400">Minutes.</span>
+             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+               Fast Printing.
              </h2>
-             <p className="text-stone-400 mb-12 max-w-xl mx-auto text-lg font-medium leading-relaxed">
-               Send your files via WhatsApp. We'll have them printed and ready for pickup before you arrive.
+             <p className="text-stone-400 mb-8 max-w-md mx-auto text-sm md:text-lg font-medium">
+               WhatsApp your files. Pickup in minutes.
              </p>
              <Motion.a 
-               href="https://wa.me/919716275329?text=Hi%20ShreeKart%2C%20I%20saw%20your%20catalog%20and%20have%20a%20question..." 
-               whileHover={{ scale: 1.05, y: -5 }}
+               href="https://wa.me/919716275329" 
                whileTap={{ scale: 0.95 }}
-               className="inline-flex items-center gap-4 bg-white text-stone-900 px-10 py-5 rounded-2xl font-black shadow-2xl hover:bg-stone-50 transition-colors"
+               className="w-full md:w-auto inline-flex justify-center items-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-stone-50 transition-colors"
              >
-               <MessageSquare className="w-6 h-6 fill-current" />
                Start Chat
              </Motion.a>
            </div>
@@ -181,41 +178,52 @@ const Home = () => {
   );
 };
 
+// --- PREMIUM COMPONENTS ---
+
 const ServiceCard = ({ icon, title, color, bg, border }) => (
-  <Motion.div 
-    whileHover={{ y: -8, scale: 1.02 }}
-    className={`bg-white p-8 rounded-3xl shadow-sm border border-stone-100 transition-all cursor-pointer flex flex-col items-center text-center h-48 justify-center ${border}`}
+  <Motion.a 
+    href="https://wa.me/c/919716275329"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileTap={{ scale: 0.95 }}
+    className={`min-w-[160px] md:min-w-0 snap-start bg-white md:bg-white/60 md:backdrop-blur-md p-5 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-white/50 hover:border-stone-200 transition-all cursor-pointer flex flex-col items-center text-center h-40 justify-center group`}
   >
-    <div className={`mb-4 p-4 rounded-2xl ${bg} ${color}`}>
+    <div className={`mb-3 p-3.5 rounded-xl ${bg} ${color} ring-1 ring-black/5 group-hover:scale-110 transition-transform`}>
       {icon}
     </div>
-    <span className="font-bold text-stone-800 text-sm">{title}</span>
-  </Motion.div>
+    <span className="font-bold text-stone-700 text-sm leading-tight group-hover:text-stone-900">{title}</span>
+  </Motion.a>
 );
 
 const CategoryCard = ({ title, desc, icon, theme, featured }) => {
   const themes = {
-    blue: "bg-blue-600",
-    orange: "bg-orange-600",
-    pink: "bg-pink-600",
-    purple: "bg-purple-600",
+    blue: "bg-blue-500 shadow-blue-200",
+    orange: "bg-orange-500 shadow-orange-200",
+    pink: "bg-pink-500 shadow-pink-200",
+    purple: "bg-purple-500 shadow-purple-200",
   };
 
   return (
-    <Motion.div 
-      whileHover={{ y: -10 }}
-      className="group bg-white rounded-[2.5rem] p-10 border border-stone-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer relative"
+    <Motion.a 
+      href="https://wa.me/c/919716275329"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileTap={{ scale: 0.95 }}
+      className="group bg-white rounded-[2rem] p-5 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all cursor-pointer relative block h-full"
     >
-      {featured && <span className="absolute top-6 right-6 bg-red-50 text-red-600 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">{featured}</span>}
-      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 text-white ${themes[theme]} shadow-lg`}>
+      {featured && <span className="absolute top-4 right-4 bg-stone-900 text-white text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest shadow-lg">{featured}</span>}
+      
+      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-white ${themes[theme]} shadow-lg group-hover:scale-105 transition-transform`}>
         {icon}
       </div>
-      <h3 className="text-2xl font-black text-stone-900 mb-3 tracking-tight">{title}</h3>
-      <p className="text-stone-500 text-sm mb-8 font-medium leading-relaxed">{desc}</p>
-      <div className="flex items-center text-sm font-bold text-stone-900 group-hover:text-red-600 transition-colors">
-        Explore <ArrowRight className="w-4 h-4 ml-2" />
+      
+      <h3 className="text-lg font-black text-stone-900 mb-1 tracking-tight">{title}</h3>
+      <p className="text-stone-400 text-xs font-medium leading-relaxed mb-4">{desc}</p>
+      
+      <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors">
+        <ArrowRight className="w-4 h-4" />
       </div>
-    </Motion.div>
+    </Motion.a>
   );
 };
 
